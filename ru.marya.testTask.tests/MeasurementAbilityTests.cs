@@ -1,4 +1,5 @@
 ﻿using System;
+using ru.marya.testTask.model.objects;
 using ru.marya.testTask.model.objects.abstarct;
 using Xunit;
 

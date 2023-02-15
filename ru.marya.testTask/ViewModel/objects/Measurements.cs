@@ -13,9 +13,9 @@ namespace ru.marya.testTask.ViewModel.objects;
 
 public class Measurements : ViewedCollections, INotifyPropertyChanged
 {
-    public ObservableCollection<Measurement> _measurements { get; set; }
+    public ObservableCollection<Measurement> _measurements = new ObservableCollection<Measurement>();
 
-    public event PropertyChangedEventHandler PropertyChanged;
+    public event PropertyChangedEventHandler PropertyChanged = null!;
 
     public Measurements()
     {

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using ru.marya.testTask.model;
 using ru.marya.testTask.model.objects.abstarct;
 
-namespace ru.marya.testTask;
+namespace ru.marya.testTask.model.objects;
 
 public sealed class MeasurementAbility : CityAndEntity, INotifyPropertyChanged, IMeasurement
 {
-    public event PropertyChangedEventHandler PropertyChanged;
+    public event PropertyChangedEventHandler PropertyChanged = null!;
 
     public DateTime Date { get; }
 

@@ -15,3 +15,4 @@ C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testT
 C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.csproj.CoreCompileInputs.cache
 C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.exe
 C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.pdb
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\GeneratedInternalTypeHelper.g.cs

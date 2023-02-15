@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ru.marya.testTask.ViewModel.objects;
 
 namespace ru.marya.testTask
 {
@@ -22,7 +23,9 @@ namespace ru.marya.testTask
     {
         public MainWindow()
         {
+            var measurements = new Measurements();
             InitializeComponent();
+            DataContext = measurements;
         }
     }
 }

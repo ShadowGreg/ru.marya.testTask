@@ -7,7 +7,7 @@ namespace ru.marya.testTask.model.objects;
 
 public sealed class Measurement : CityAndEntity, INotifyPropertyChanged, IMeasurement
 {
-    public event PropertyChangedEventHandler PropertyChanged;
+    public event PropertyChangedEventHandler? PropertyChanged;
     private DateTime _date;
     public int MeasureId { get; }
 
