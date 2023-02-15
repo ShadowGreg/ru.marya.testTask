@@ -1,0 +1,17 @@
+C:\workspace\ru.marya.testTask\ru.marya.testTask\bin\Debug\net481\ru.marya.testTask.exe.config
+C:\workspace\ru.marya.testTask\ru.marya.testTask\bin\Debug\net481\ru.marya.testTask.exe
+C:\workspace\ru.marya.testTask\ru.marya.testTask\bin\Debug\net481\ru.marya.testTask.pdb
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.csproj.AssemblyReference.cache
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.csproj.SuggestedBindingRedirects.cache
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\MainWindow.g.cs
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\App.g.cs
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask_MarkupCompile.cache
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask_MarkupCompile.lref
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\MainWindow.baml
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.g.resources
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.AssemblyInfoInputs.cache
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.AssemblyInfo.cs
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.csproj.CoreCompileInputs.cache
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.exe
+C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.pdb
