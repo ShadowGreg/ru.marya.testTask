@@ -23,9 +23,8 @@ namespace ru.marya.testTask
     {
         public MainWindow()
         {
-            var measurements = new Measurements();
             InitializeComponent();
-            DataContext = measurements;
+            DataContext = new Measurements();
         }
     }
 }

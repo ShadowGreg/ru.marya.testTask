@@ -17,6 +17,8 @@ public sealed class Measurement : CityAndEntity, INotifyPropertyChanged, IMeasur
 
     public string PhoneNumber { get; }
 
+    public string FullInfo { get; }
+
     public DateTime Date
     {
         get => _date;
@@ -27,17 +29,18 @@ public sealed class Measurement : CityAndEntity, INotifyPropertyChanged, IMeasur
         }
     }
 
-    public Measurement(string fullName, string address, string phoneNumber, City name) : base(name)
+    public Measurement(string fullName, string address, string phoneNumber, City cityName) : base(cityName)
     {
         MeasureId = new Random().Next(100_000, 999_999);
         FullName = fullName;
         Address = address;
         PhoneNumber = phoneNumber;
+        FullInfo = string.Format(cityName.Name + "\t" + FullName + "\t" + Address + "\t" + PhoneNumber);
     }
 
     public override City getCity()
     {
-        return _name;
+        return CityName;
     }
 
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)

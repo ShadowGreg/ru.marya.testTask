@@ -6,11 +6,11 @@ namespace ru.marya.testTask.model.objects.abstarct;
 
 public abstract class CityAndEntity
 {
-    protected City _name;
+    protected City CityName;
 
-    protected CityAndEntity(City name)
+    protected CityAndEntity(City cityName)
     {
-        _name = name;
+        CityName = cityName;
     }
 
     public abstract City getCity();

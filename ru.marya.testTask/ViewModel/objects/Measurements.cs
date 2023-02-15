@@ -26,6 +26,8 @@ public class Measurements : ViewedCollections, INotifyPropertyChanged
         }
     }
 
+    public ObservableCollection<Measurement> GetMeasurements() => _measurements;
+
     public override void AddItem(CityAndEntity item)
     {
         _measurements.CollectionChanged += CollectionChanged;

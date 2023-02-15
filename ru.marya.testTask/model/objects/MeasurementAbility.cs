@@ -13,7 +13,7 @@ public sealed class MeasurementAbility : CityAndEntity, INotifyPropertyChanged, 
 
     public int MeasureAbility { get; private set; }
 
-    public MeasurementAbility(int measureAbility, DateTime date, City name) : base(name)
+    public MeasurementAbility(int measureAbility, DateTime date, City cityName) : base(cityName)
     {
         MeasureAbility = measureAbility;
         Date = date;
@@ -28,7 +28,7 @@ public sealed class MeasurementAbility : CityAndEntity, INotifyPropertyChanged, 
 
     public override City getCity()
     {
-        return _name;
+        return CityName;
     }
 
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
