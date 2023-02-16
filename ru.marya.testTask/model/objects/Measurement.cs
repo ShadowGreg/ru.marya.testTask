@@ -14,11 +14,11 @@ public sealed class Measurement : AMeasurement, INotifyPropertyChanged
 
     public string FullName { get; }
 
+    public string CityName => base.CityName.ToString();
+
     public string Address { get; }
 
     public string PhoneNumber { get; }
-
-    public string FullInfo { get; }
 
     public DateTime Date
     {
@@ -36,16 +36,15 @@ public sealed class Measurement : AMeasurement, INotifyPropertyChanged
         FullName = fullName;
         Address = address;
         PhoneNumber = phoneNumber;
-        FullInfo = string.Format(cityName.Name + "\t" + FullName + "\t" + Address + "\t" + PhoneNumber);
-    }
-
-    public override City getCity()
-    {
-        return CityName;
     }
 
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    public override City getCity()
+    {
+        return base.CityName;
     }
 }

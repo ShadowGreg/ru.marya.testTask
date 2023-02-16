@@ -41,13 +41,21 @@
             HorizontalAlignment="Center">
             Календарь на неделю
         </Label>
-        <ListBox
-            DisplayMemberPath="FullInfo"
+        <DataGrid
+            AutoGenerateColumns="True"
             Grid.Column="0"
             Grid.Row="1"
-            ItemsSource="{Binding Source={StaticResource measurementProvider}}"
-            PreviewMouseDoubleClick="AddDate"
-            ScrollViewer.VerticalScrollBarVisibility="Visible"
-            x:Name="Names" />
+            ItemsSource="{Binding Source={StaticResource measurementProvider}}">
+            <DataGrid.Resources />
+        </DataGrid>
+
+        <!--  <ListBox  -->
+        <!--  DisplayMemberPath="FullInfo"  -->
+        <!--  Grid.Column="0"  -->
+        <!--  Grid.Row="1"  -->
+        <!--  ItemsSource="{Binding Source={StaticResource measurementProvider}}"  -->
+        <!--  PreviewMouseDoubleClick="AddDate"  -->
+        <!--  ScrollViewer.VerticalScrollBarVisibility="Visible"  -->
+        <!--  x:Name="Names" />  -->
     </Grid>
 </Window>
