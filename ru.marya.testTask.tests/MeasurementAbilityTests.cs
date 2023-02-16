@@ -9,14 +9,14 @@ namespace ru.marya.testTask.tests
     {
         private static readonly int ability = 4;
 
-        private readonly MeasurementAbility measurementAbility =
+        private readonly MeasurementAbility _measurementAbility =
             new MeasurementAbility(ability, DateTime.Parse("12-12-2023"), new City("Москва"));
 
         [Fact]
         public void Measurement_Ability_Crate()
         {
-            Assert.NotNull(measurementAbility);
-            Assert.NotNull(measurementAbility.getCity());
+            Assert.NotNull(_measurementAbility);
+            Assert.NotNull(_measurementAbility.getCity());
         }
 
         [Fact]
@@ -24,7 +24,7 @@ namespace ru.marya.testTask.tests
         {
             const string expected = "12.12.2023 0:00:00";
 
-            Assert.Equal(expected, measurementAbility.Date.ToString());
+            Assert.Equal(expected, _measurementAbility.Date.ToString());
         }
 
         [Fact]
@@ -32,26 +32,26 @@ namespace ru.marya.testTask.tests
         {
             const int expected = 4;
 
-            Assert.Equal(expected, measurementAbility.MeasureAbility);
+            Assert.Equal(expected, _measurementAbility.MeasureAbility);
         }
 
         [Fact]
         public void Measurement_Ability_Booking_Ability_Test()
         {
-            measurementAbility.BookingAbility();
+            _measurementAbility.BookingAbility();
 
             const int expected = 3;
 
-            Assert.Equal(expected, measurementAbility.MeasureAbility);
+            Assert.Equal(expected, _measurementAbility.MeasureAbility);
         }
 
         [Fact]
         public void Measurement_Ability_Properties_Changed_Test()
         {
             string changedPropertyAbility = null;
-            measurementAbility.PropertyChanged += (_, args) => changedPropertyAbility = args.PropertyName;
+            _measurementAbility.PropertyChanged += (_, args) => changedPropertyAbility = args.PropertyName;
 
-            measurementAbility.BookingAbility();
+            _measurementAbility.BookingAbility();
             var expected = "MeasureAbilityChange";
 
             Assert.Equal(expected, changedPropertyAbility);

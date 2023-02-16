@@ -1,8 +1,8 @@
-﻿using ru.marya.testTask.model.objects.abstarct;
+﻿using ru.marya.testTask.ViewModel.objects;
 
 namespace ru.marya.testTask.ViewModel;
 
 public abstract class ViewedCollections
 {
-    public abstract void AddItem(CityAndEntity item);
+    public abstract void AddItem(AMeasurement item);
 }

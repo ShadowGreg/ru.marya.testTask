@@ -8,17 +8,46 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:objects="clr-namespace:ru.marya.testTask.ViewModel.objects"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:y="http://schemas.microsoft.com/winfx/2006/xaml">
     <Window.Resources>
         <ObjectDataProvider
             MethodName="GetMeasurements"
             ObjectType="{x:Type objects:Measurements}"
             x:Key="measurementProvider" />
+        <!--  <ObjectDataProvider  -->
+        <!--  MethodName="GetPossibilities"  -->
+        <!--  ObjectType="{x:Type objects:ScheduleOfMeasurements}"  -->
+        <!--  x:Key="abilityesProvider" />  -->
     </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Column="0"
+            Grid.Row="0"
+            HorizontalAlignment="Center">
+            Заявки в обрабоке
+        </Label>
+        <Label
+            Grid.Column="1"
+            Grid.Row="0"
+            HorizontalAlignment="Center">
+            Календарь на неделю
+        </Label>
         <ListBox
             DisplayMemberPath="FullInfo"
+            Grid.Column="0"
+            Grid.Row="1"
             ItemsSource="{Binding Source={StaticResource measurementProvider}}"
+            PreviewMouseDoubleClick="AddDate"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
             x:Name="Names" />
     </Grid>
 </Window>

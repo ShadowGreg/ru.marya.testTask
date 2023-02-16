@@ -8,32 +8,32 @@ namespace ru.marya.testTask.tests
     public class MeasurementTests
     {
         private readonly Measurement
-            measurement = new Measurement("Test Test Test", "Test", "Test", new City("Москва"));
+            _measurement = new Measurement("Test Test Test", "Test", "Test", new City("Москва"));
 
         [Fact]
         public void Measurement_Crate()
         {
-            Assert.NotNull(measurement);
+            Assert.NotNull(_measurement);
         }
 
         [Fact]
         public void Measurement_Get_Fields()
         {
-            Assert.NotNull(measurement.MeasureId);
-            Assert.NotNull(measurement.FullName);
-            Assert.NotNull(measurement.Address);
-            Assert.NotNull(measurement.PhoneNumber);
-            Assert.NotNull(measurement.Date);
-            Assert.NotNull(measurement.getCity());
+            Assert.NotNull(_measurement.MeasureId);
+            Assert.NotNull(_measurement.FullName);
+            Assert.NotNull(_measurement.Address);
+            Assert.NotNull(_measurement.PhoneNumber);
+            Assert.NotNull(_measurement.Date);
+            Assert.NotNull(_measurement.getCity());
         }
 
         [Fact]
         public void Measurement_Set_Date()
         {
             var expectedDate = DateTime.Now;
-            measurement.Date = expectedDate;
+            _measurement.Date = expectedDate;
 
-            var actualDate = measurement.Date;
+            var actualDate = _measurement.Date;
 
             Assert.Equal(expectedDate, actualDate);
         }
@@ -42,9 +42,9 @@ namespace ru.marya.testTask.tests
         public void Measurement_Properties_Changed_Test()
         {
             var changedPropertyDate = DateTime.Parse("12-12-2215").ToString();
-            measurement.PropertyChanged += (sender, args) => changedPropertyDate = args.PropertyName;
+            _measurement.PropertyChanged += (sender, args) => changedPropertyDate = args.PropertyName;
 
-            measurement.Date = DateTime.Now;
+            _measurement.Date = DateTime.Now;
             const string expected = "MeasurementAddDate";
 
             Assert.Equal(expected, changedPropertyDate);

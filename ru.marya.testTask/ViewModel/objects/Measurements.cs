@@ -6,14 +6,13 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ru.marya.testTask.infoController;
 using ru.marya.testTask.model.objects;
-using ru.marya.testTask.model.objects.abstarct;
 
 
 namespace ru.marya.testTask.ViewModel.objects;
 
 public class Measurements : ViewedCollections, INotifyPropertyChanged
 {
-    public ObservableCollection<Measurement> _measurements = new ObservableCollection<Measurement>();
+    private readonly ObservableCollection<Measurement> _measurements = new ObservableCollection<Measurement>();
 
     public event PropertyChangedEventHandler PropertyChanged = null!;
 
@@ -28,19 +27,19 @@ public class Measurements : ViewedCollections, INotifyPropertyChanged
 
     public ObservableCollection<Measurement> GetMeasurements() => _measurements;
 
-    public override void AddItem(CityAndEntity item)
+    public override void AddItem(AMeasurement item)
     {
         _measurements.CollectionChanged += CollectionChanged;
         _measurements.Add((Measurement)item);
     }
 
-    public void RemoveItem(CityAndEntity item)
+    public void RemoveItem(AMeasurement item)
     {
         _measurements.CollectionChanged += CollectionChanged;
         _measurements.Remove((Measurement)item);
     }
 
-    public CityAndEntity GetItem(CityAndEntity item)
+    public AMeasurement GetItem(AMeasurement item)
     {
         var measurement = item;
         _measurements.CollectionChanged += CollectionChanged;
@@ -48,7 +47,7 @@ public class Measurements : ViewedCollections, INotifyPropertyChanged
         return measurement;
     }
 
-    public void SetDate(CityAndEntity item, DateTime date)
+    public void SetDate(AMeasurement item, DateTime date)
     {
         ((Measurement)item).Date = date;
         OnPropertyChanged("SetDate");
@@ -83,8 +82,8 @@ public class Measurements : ViewedCollections, INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    private List<Measurement> getNewOrders()
+    private List<AMeasurement> getNewOrders()
     {
-        return new OrderGenerator().getNewOrder();
+        return new OrderGenerator().getData();
     }
 }

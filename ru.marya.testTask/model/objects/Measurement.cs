@@ -2,10 +2,11 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ru.marya.testTask.model.objects.abstarct;
+using ru.marya.testTask.ViewModel.objects;
 
 namespace ru.marya.testTask.model.objects;
 
-public sealed class Measurement : CityAndEntity, INotifyPropertyChanged, IMeasurement
+public sealed class Measurement : AMeasurement, INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
     private DateTime _date;

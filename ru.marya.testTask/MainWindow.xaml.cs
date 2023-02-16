@@ -25,6 +25,13 @@ namespace ru.marya.testTask
         {
             InitializeComponent();
             DataContext = new Measurements();
+            
+        }
+
+
+        private void AddDate(object sender, MouseButtonEventArgs e)
+        {
+            Console.WriteLine(sender.GetType());
         }
     }
 }
