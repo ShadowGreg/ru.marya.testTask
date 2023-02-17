@@ -10,15 +10,15 @@ public sealed class Measurement : AMeasurement, INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
     private DateTime _date;
-    public string MeasureId { get; set;}
+    public string MeasureId { get; }
 
-    public string FullName { get; set;}
+    public string FullName { get; }
 
     public string CityName => base.CityName.ToString();
 
-    public string Address { get; set;}
+    public string Address { get; }
 
-    public string PhoneNumber { get; set;}
+    public string PhoneNumber { get; }
 
     public DateTime Date
     {
@@ -32,7 +32,7 @@ public sealed class Measurement : AMeasurement, INotifyPropertyChanged
 
     public Measurement(string fullName, string address, string phoneNumber, City cityName) : base(cityName)
     {
-        MeasureId = Guid.NewGuid().ToString("N").Substring(0,6);
+        MeasureId = Guid.NewGuid().ToString("N").Substring(0, 6);
         FullName = fullName;
         Address = address;
         PhoneNumber = phoneNumber;

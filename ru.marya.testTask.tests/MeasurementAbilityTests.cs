@@ -48,7 +48,7 @@ namespace ru.marya.testTask.tests
         [Fact]
         public void Measurement_Ability_Properties_Changed_Test()
         {
-            string changedPropertyAbility = null;
+            string? changedPropertyAbility = null;
             _measurementAbility.PropertyChanged += (_, args) => changedPropertyAbility = args.PropertyName;
 
             _measurementAbility.BookingAbility();

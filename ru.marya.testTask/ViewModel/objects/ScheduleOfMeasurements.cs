@@ -15,6 +15,7 @@ public sealed class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyC
         new ObservableCollection<MeasurementAbility>();
 
     public event PropertyChangedEventHandler PropertyChanged;
+    public ObservableCollection<MeasurementAbility> scheduleMeasurements { get; set; }
 
     public ScheduleOfMeasurements()
     {
@@ -25,16 +26,15 @@ public sealed class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyC
         }
     }
 
-    public ObservableCollection<MeasurementAbility> GetItemsByCity(City city)
+    public void GetItemsByCity(City city)
     {
-        ObservableCollection<MeasurementAbility> MeasurementAbilityes = new ObservableCollection<MeasurementAbility>();
+        scheduleMeasurements = new ObservableCollection<MeasurementAbility>();
         foreach (var item in _scheduleMeasurements)
         {
-            if (item.getCity().ToString() == city.ToString())
-                MeasurementAbilityes.Add(item);
+            if (item.getCity().ToString() != city.ToString()) continue;
+            scheduleMeasurements.CollectionChanged += CollectionChanged;
+            scheduleMeasurements.Add(item);
         }
-
-        return MeasurementAbilityes;
     }
 
     public ObservableCollection<MeasurementAbility> GetScheduleMeasurements() => _scheduleMeasurements;
@@ -59,13 +59,5 @@ public sealed class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyC
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    private bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
-    {
-        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-        field = value;
-        OnPropertyChanged(propertyName);
-        return true;
     }
 }
