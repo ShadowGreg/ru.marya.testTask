@@ -23,7 +23,7 @@ public sealed class MeasurementAbility : AMeasurement, INotifyPropertyChanged
     public void BookingAbility()
     {
         if (MeasureAbility <= 0) return;
-        MeasureAbility--;
+        --MeasureAbility;
         OnPropertyChanged("MeasureAbilityChange");
     }
 

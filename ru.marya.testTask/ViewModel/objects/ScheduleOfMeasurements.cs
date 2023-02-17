@@ -15,7 +15,7 @@ public sealed class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyC
         new ObservableCollection<MeasurementAbility>();
 
     public event PropertyChangedEventHandler PropertyChanged;
-    public ObservableCollection<MeasurementAbility> scheduleMeasurements { get; set; }
+    public ObservableCollection<MeasurementAbility> scheduleMeasurements { get; private set; }
 
     public ScheduleOfMeasurements()
     {

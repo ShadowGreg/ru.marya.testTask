@@ -6,7 +6,6 @@ C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testT
 C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\MainWindow.g.cs
 C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\App.g.cs
 C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask_MarkupCompile.cache
-C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask_MarkupCompile.lref
 C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\MainWindow.baml
 C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.g.resources
 C:\workspace\ru.marya.testTask\ru.marya.testTask\obj\Debug\net481\ru.marya.testTask.GeneratedMSBuildEditorConfig.editorconfig

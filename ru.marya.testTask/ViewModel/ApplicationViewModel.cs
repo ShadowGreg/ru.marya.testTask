@@ -13,6 +13,8 @@ public sealed class ApplicationViewModel : INotifyPropertyChanged
     public ScheduleOfMeasurements schedule;
     public ObservableCollection<Measurement> Measurements { get; }
     public ObservableCollection<MeasurementAbility> Schedule { get; }
+    
+    public ObservableCollection<Measurement> ProcessedMeasurements { get; }
 
     public event PropertyChangedEventHandler PropertyChanged;
 
@@ -20,8 +22,15 @@ public sealed class ApplicationViewModel : INotifyPropertyChanged
     {
         measurement = new Measurements();
         schedule = new ScheduleOfMeasurements();
+        ProcessedMeasurements = new ObservableCollection<Measurement>();
         Measurements = measurement.GetMeasurements();
         Schedule = schedule.scheduleMeasurements;
+    }
+
+    public void addProcessedMeasurement(Measurement closeMeasure)
+    {
+        OnPropertyChanged("AddClosedMeasure");
+        ProcessedMeasurements.Add(closeMeasure);
     }
 
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
