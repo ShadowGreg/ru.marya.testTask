@@ -8,13 +8,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:objects="clr-namespace:ru.marya.testTask.ViewModel.objects"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:y="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Window.Resources>
         <ObjectDataProvider
             MethodName="GetMeasurements"
             ObjectType="{x:Type objects:Measurements}"
-            x:Key="measurementProvider" />
+            x:Key="MeasurementProvider" />
         <!--  <ObjectDataProvider  -->
         <!--  MethodName="GetPossibilities"  -->
         <!--  ObjectType="{x:Type objects:ScheduleOfMeasurements}"  -->
@@ -22,8 +21,8 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="600" />
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="500" />
+            <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
@@ -42,12 +41,26 @@
             Календарь на неделю
         </Label>
         <DataGrid
-            AutoGenerateColumns="True"
+            AutoGenerateColumns="False"
             Grid.Column="0"
             Grid.Row="1"
-            ItemsSource="{Binding Source={StaticResource measurementProvider}}">
-            <DataGrid.Resources />
+            ItemsSource="{Binding Source={StaticResource MeasurementProvider}}"
+            MouseDoubleClick="DataGridMeasurements_OnMouseDoubleClick"
+            SelectedItem=""
+            x:Name="DataGridMeasurements">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding MeasureId}" Header="Id" />
+                <DataGridTextColumn Binding="{Binding CityName}" Header="Город" />
+                <DataGridTextColumn Binding="{Binding FullName}" Header="ФИО" />
+                <DataGridTextColumn Binding="{Binding PhoneNumber}" Header="Телефон" />
+                <DataGridTextColumn Binding="{Binding Address}" Header="Адресс" />
+            </DataGrid.Columns>
         </DataGrid>
+        <!--  <DataGrid  -->
+        <!--  AutoGenerateColumns="True"  -->
+        <!--  Grid.Column="1"  -->
+        <!--  Grid.Row="1"  -->
+        <!--  ItemsSource="{Binding Path=ScheduleOfMeasurements}" />  -->
 
         <!--  <ListBox  -->
         <!--  DisplayMemberPath="FullInfo"  -->

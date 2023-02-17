@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ru.marya.testTask.model.objects;
 using ru.marya.testTask.ViewModel.objects;
 
 namespace ru.marya.testTask
@@ -21,17 +23,18 @@ namespace ru.marya.testTask
     /// </summary>
     public partial class MainWindow : Window
     {
+        ScheduleOfMeasurements shedule = new ScheduleOfMeasurements();
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new Measurements();
-            
+
         }
 
-
-        private void AddDate(object sender, MouseButtonEventArgs e)
+        private void DataGridMeasurements_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Console.WriteLine(sender.GetType());
+            var temp = (Measurement)DataGridMeasurements.SelectedItem;
+            var nexttemp =shedule.GetItemsByCity(temp.getCity());
+            
         }
     }
 }

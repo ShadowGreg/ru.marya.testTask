@@ -9,7 +9,7 @@ using ru.marya.testTask.model.objects.abstarct;
 
 namespace ru.marya.testTask.ViewModel.objects;
 
-public class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyChanged
+public sealed class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyChanged
 {
     private readonly ObservableCollection<MeasurementAbility> _scheduleMeasurements =
         new ObservableCollection<MeasurementAbility>();
@@ -25,6 +25,18 @@ public class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyChanged
         }
     }
 
+    public ObservableCollection<MeasurementAbility> GetItemsByCity(City city)
+    {
+        ObservableCollection<MeasurementAbility> MeasurementAbilityes = new ObservableCollection<MeasurementAbility>();
+        foreach (var item in _scheduleMeasurements)
+        {
+            if (item.getCity().ToString() == city.ToString())
+                MeasurementAbilityes.Add(item);
+        }
+
+        return MeasurementAbilityes;
+    }
+
     public ObservableCollection<MeasurementAbility> GetScheduleMeasurements() => _scheduleMeasurements;
 
     public override void AddItem(AMeasurement item)
@@ -35,7 +47,7 @@ public class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyChanged
 
     private void CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        OnPropertyChanged("CollectionChanged");
     }
 
     private List<AMeasurement> getAbilitys()
@@ -44,12 +56,12 @@ public class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyChanged
     }
 
 
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
+    private bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
     {
         if (EqualityComparer<T>.Default.Equals(field, value)) return false;
         field = value;
