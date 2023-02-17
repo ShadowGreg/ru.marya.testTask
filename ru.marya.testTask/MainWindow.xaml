@@ -9,16 +9,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:objects="clr-namespace:ru.marya.testTask.ViewModel.objects"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Window.Resources>
-        <ObjectDataProvider
-            MethodName="GetMeasurements"
-            ObjectType="{x:Type objects:Measurements}"
-            x:Key="MeasurementProvider" />
-        <!--  <ObjectDataProvider  -->
-        <!--  MethodName="GetPossibilities"  -->
-        <!--  ObjectType="{x:Type objects:ScheduleOfMeasurements}"  -->
-        <!--  x:Key="abilityesProvider" />  -->
-    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500" />
@@ -34,20 +24,21 @@
             HorizontalAlignment="Center">
             Заявки в обрабоке
         </Label>
-        <Label
+        <WrapPanel
             Grid.Column="1"
             Grid.Row="0"
-            HorizontalAlignment="Center">
-            Календарь замеров на неделю
-        </Label>
+            VerticalAlignment="Center">
+            <Label>
+                График замеров по городу
+            </Label>
+            <Label VerticalAlignment="Center" x:Name="LabelCityName" />
+        </WrapPanel>
         <DataGrid
             AutoGenerateColumns="False"
             Grid.Column="0"
             Grid.Row="1"
             IsReadOnly="True"
-            ItemsSource="{Binding Source={StaticResource MeasurementProvider}}"
             MouseDoubleClick="DataGridMeasurements_OnMouseDoubleClick"
-            SelectedItem=""
             x:Name="DataGridMeasurements">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding MeasureId}" Header="Id" />
@@ -62,34 +53,11 @@
             Grid.Column="1"
             Grid.Row="1"
             IsReadOnly="True"
-            d:DataContext="{d:ScheduleOfMeasurements.scheduleMeasurements}"
             x:Name="Schedule">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Date, StringFormat={}{0:dd/MM/yy}}" Header="Дата" />
                 <DataGridTextColumn Binding="{Binding MeasureAbility}" Header="Число замеров" />
             </DataGrid.Columns>
         </DataGrid>
-
-        <!--  <DataGrid  -->
-        <!--  AutoGenerateColumns="True"  -->
-        <!--  Grid.Column="1"  -->
-        <!--  Grid.Row="1"  -->
-        <!--  InputScope="GetSchedule">  -->
-        <!--     <DataGrid.Columns /> -->
-        <!-- </DataGrid> -->
-        <!--  <DataGrid  -->
-        <!--  AutoGenerateColumns="True"  -->
-        <!--  Grid.Column="1"  -->
-        <!--  Grid.Row="1"  -->
-        <!--  ItemsSource="{Binding Path=ScheduleOfMeasurements}" />  -->
-
-        <!--  <ListBox  -->
-        <!--  DisplayMemberPath="FullInfo"  -->
-        <!--  Grid.Column="0"  -->
-        <!--  Grid.Row="1"  -->
-        <!--  ItemsSource="{Binding Source={StaticResource measurementProvider}}"  -->
-        <!--  PreviewMouseDoubleClick="AddDate"  -->
-        <!--  ScrollViewer.VerticalScrollBarVisibility="Visible"  -->
-        <!--  x:Name="Names" />  -->
     </Grid>
 </Window>

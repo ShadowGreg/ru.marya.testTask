@@ -24,6 +24,8 @@ public sealed class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyC
         {
             AddItem(item);
         }
+
+        GetItemsByCity(new City("Москва"));
     }
 
     public void GetItemsByCity(City city)

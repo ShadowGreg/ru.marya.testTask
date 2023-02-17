@@ -1,22 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Interop;
 using ru.marya.testTask.model.objects;
-using ru.marya.testTask.model.objects.abstarct;
-using ru.marya.testTask.ViewModel.objects;
+using ru.marya.testTask.ViewModel;
 
 namespace ru.marya.testTask
 {
@@ -25,24 +12,22 @@ namespace ru.marya.testTask
     /// </summary>
     public partial class MainWindow : Window
     {
-        ScheduleOfMeasurements shedule = new ScheduleOfMeasurements();
-
+        private ApplicationViewModel aplication;
         public MainWindow()
         {
+            aplication = new ApplicationViewModel();
             InitializeComponent();
-            GetSchedule();
-            Schedule.ItemsSource = shedule.scheduleMeasurements;
+            
+            DataGridMeasurements.ItemsSource = aplication.Measurements;
+            
         }
 
-        private void DataGridMeasurements_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void DataGridMeasurements_OnMouseDoubleClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            var temp = (Measurement)DataGridMeasurements.SelectedItem;
-            GetSchedule(temp.getCity().ToString());
-        }
-
-        private void GetSchedule(string cityName = "Москва")
-        {
-            shedule.GetItemsByCity(new City(cityName));
+            var city = (Measurement)DataGridMeasurements.CurrentItem;
+            aplication.schedule.GetItemsByCity(city.getCity());
+            LabelCityName.Content= city.CityName;
+            Schedule.ItemsSource = aplication.schedule.scheduleMeasurements;
         }
     }
 }
