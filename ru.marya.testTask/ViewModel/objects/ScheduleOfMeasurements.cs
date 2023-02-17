@@ -11,20 +11,20 @@ namespace ru.marya.testTask.ViewModel.objects;
 
 public sealed class ScheduleOfMeasurements : ViewedCollections, INotifyPropertyChanged
 {
-    private readonly ObservableCollection<MeasurementAbility> _scheduleMeasurements =
-        new ObservableCollection<MeasurementAbility>();
+    private readonly ObservableCollection<MeasurementAbility> _scheduleMeasurements;
 
     public event PropertyChangedEventHandler PropertyChanged;
     public ObservableCollection<MeasurementAbility> scheduleMeasurements { get; private set; }
 
     public ScheduleOfMeasurements()
     {
+        _scheduleMeasurements =
+            new ObservableCollection<MeasurementAbility>();
         var abilities = getAbilitys();
         foreach (var item in abilities)
         {
             AddItem(item);
         }
-
         GetItemsByCity(new City("Москва"));
     }
 
